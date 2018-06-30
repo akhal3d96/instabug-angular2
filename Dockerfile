@@ -3,7 +3,7 @@ COPY . /app
 WORKDIR /app
 RUN npm install
 EXPOSE 4200 49152
-CMD npx ng build
+RUN npx ng build
 
 FROM nginx:mainline
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
